@@ -17,8 +17,7 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
     required: true,
   },
   img: {
-    type: String,
-    required: true, 
+    type: String, 
   },
   role: {
     type: String,

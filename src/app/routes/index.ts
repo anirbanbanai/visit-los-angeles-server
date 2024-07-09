@@ -11,6 +11,7 @@ import { QuataRouter } from '../modules/quata/quata.route';
 import { SliderRouter } from '../modules/slider/slider.route';
 import { VideoRouter } from '../modules/video_streming/video.route';
 import { AdRouter } from '../modules/advertise/ad.route';
+import { TownRouter } from '../modules/town/town.route';
 
 type TModuleRoutes = {
   path: string;
@@ -68,6 +69,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: '/advertise',
     route: AdRouter,
+  },
+  {
+    path: '/town',
+    route: TownRouter,
   },
 ];
 

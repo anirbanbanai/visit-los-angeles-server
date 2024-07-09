@@ -128,6 +128,20 @@ function isErrorWithMessage(error: unknown): error is ErrorWithMessage {
   }
 };
 
+const findUserByEmail = async (req: Request, res: Response) => {
+  try {
+    const user = await UserService.findUserByEmail(req.params.email);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.status(200).json(user);
+  } catch (error: unknown) {
+    if (isErrorWithMessage(error)) {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(400).json({ error: 'Unknown error' });
+    }
+  }
+};
+
  const updateUserDetails = async (req: Request, res: Response) => {
   try {
     const updatedUser = await UserService.updateUser(req.params.id, req.body);
@@ -161,4 +175,5 @@ export const UserController = {
   getUsers,
   updateUserDetails,
   removeUser,
+  findUserByEmail
 };

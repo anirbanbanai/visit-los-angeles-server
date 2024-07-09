@@ -85,6 +85,10 @@ const getUserById = async (id: string) => {
   return User.findById(id);
 };
 
+const findUserByEmail = async (email: string) => {
+  return User.findOne({ email });
+};
+
 const getAllUsers = async () => {
   return User.find();
 };
@@ -107,4 +111,5 @@ export const UserService = {
   updateUser,
   deleteUser,
   loginUser,
+  findUserByEmail
 };
